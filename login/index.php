@@ -376,6 +376,41 @@ if (isloggedin() and !isguestuser()) {
     $loginform = new \core_auth\output\login($authsequence, $frm->username);
     $loginform->set_error($errormsg);
     echo $OUTPUT->render($loginform);
+    echo '<div class="row justify-content-center mt-3">
+    <div class="col-xl-6 col-sm-8">
+    <div class="card">
+        <div class="card-body">
+            <div class="card-title">
+                <h2>Ingresar como alumno</h2>
+            </div>
+            <div>
+            
+            <form class="mt-3" action="'.get_login_url().'" method="post" id="login">
+                <input type="hidden" name="logintoken" value="'.s(\core\session\manager::get_login_token()).'">
+                <div class="form-group">
+                    <label for="username" class="sr-only">
+                            Folio
+                    </label>
+                    <input type="text" name="username" id="username" class="form-control" value="" placeholder="Folio" autocomplete="username">
+                </div>
+                <div class="form-group">
+                    <label for="password" class="sr-only">Contraseña</label>
+                    <input type="hidden" name="password" id="password" value="PriCiD$2019" class="form-control" placeholder="Contraseña" autocomplete="current-password">
+                </div>
+                    <div class="rememberpass mt-3">
+                        <input type="checkbox" name="rememberusername" id="rememberusername1" value="1">
+                        <label for="rememberusername">Recordarme</label>
+                    </div>
+
+                <button type="submit" class="btn btn-primary mt-3" id="loginbtn">Ingresar como alumno</button>
+                <br>
+                <a style="text-aling: center;" href="'.$CFG->wwwroot.'/login/forgot_password.php">¿Olvidó su folio?</a>
+            </form>
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>';
 }
 
 echo $OUTPUT->footer();

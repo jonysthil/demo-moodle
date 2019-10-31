@@ -51,9 +51,11 @@ class login_signup_form extends moodleform implements renderable, templatable {
         //$mform->addElement('header', 'createuserandpass', get_string('createuserandpass'), '');
 
 
-        $mform->addElement('text', 'username', get_string('username'), 'maxlength="100" size="12" autocapitalize="none"');
+        $mform->addElement('hidden', 'username', 'Folio', 'maxlength="100" size="12" autocapitalize="none"');
         $mform->setType('username', PARAM_RAW);
         $mform->addRule('username', get_string('missingusername'), 'required', null, 'client');
+        $mform->setDefault('username', $this->folio_generate());
+        //$mform->freeze('username');
 
         //$mform->addElement('header', 'supplyinfo', get_string('supplyinfo'),'');
 
@@ -166,4 +168,28 @@ class login_signup_form extends moodleform implements renderable, templatable {
         ];
         return $context;
     }
+
+    public function folio_generate() {
+        global $DB, $CFG, $OUTPUT, $PAGE, $SESSION;
+        require_once($CFG->dirroot.'/user/lib.php');
+        $sql = "SELECT username
+              FROM user
+              ORDER BY username DESC
+              LIMIT 0,1";
+        $user = $DB->get_record_sql($sql);
+
+        $folio = $user->username;
+
+        $folio = explode('pri19', $user->username);
+
+        $new_folio = $folio[1] + 1;
+
+        if ($new_folio <= 10) {
+            $new_folio = '00' . $new_folio;
+        } elseif ($new_folio >= 10 && $new_folio <= 99) {
+            $new_folio = '0' . $new_folio;
+        }
+
+        return 'pri19' . $new_folio;
+    } 
 }
