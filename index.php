@@ -70,7 +70,8 @@ if (get_home_page() != HOMEPAGE_SITE) {
     if (optional_param('setdefaulthome', false, PARAM_BOOL)) {
         set_user_preference('user_home_page_preference', HOMEPAGE_SITE);
     } else if (!empty($CFG->defaulthomepage) && ($CFG->defaulthomepage == HOMEPAGE_MY) && $redirect === 1) {
-        redirect($CFG->wwwroot .'/my/');
+        //redirect($CFG->wwwroot .'/my/');
+        redirect($CFG->wwwroot . '/course/view.php?id=3');
     } else if (!empty($CFG->defaulthomepage) && ($CFG->defaulthomepage == HOMEPAGE_USER)) {
         $frontpagenode = $PAGE->settingsnav->find('frontpage', null);
         if ($frontpagenode) {

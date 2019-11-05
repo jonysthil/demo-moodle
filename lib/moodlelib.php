@@ -6427,10 +6427,14 @@ function send_confirmation_email($user, $confirmationurl = null) {
     // Prevent problems with trailing dots not being included as part of link in some mail clients.
     $username = str_replace('.', '%2E', $username);
 
+    $data->username = $username;
+
+    $data->email = $user->email;
+
     $data->link = $confirmationpath . ( $hasquerystring ? '&' : '?') . 'data='. $user->secret .'/'. $username;
 
     $message     = get_string('emailconfirmation', '', $data);
-    $messagehtml = text_to_html(get_string('emailconfirmation', '', $data), false, false, true);
+    $messagehtml = text_to_html(get_string('emailconfirmation', '', $data, $username), false, false, true);
 
     $user->mailformat = 1;  // Always send HTML version as well.
 
