@@ -104,9 +104,9 @@ if (file_exists($CFG->dirroot.'/local/hub/lib.php') and get_config('local_hub', 
     }
 }
 
-$PAGE->set_pagetype('site-index');
+//$PAGE->set_pagetype('site-index');
 $PAGE->set_docs_path('');
-$editing = $PAGE->user_is_editing();
+//$editing = $PAGE->user_is_editing();
 $PAGE->set_title($SITE->fullname);
 $PAGE->set_heading($SITE->fullname);
 $courserenderer = $PAGE->get_renderer('core', 'course');
@@ -131,34 +131,9 @@ if (!empty($CFG->customfrontpageinclude)) {
 // Include course AJAX.
 include_course_ajax($SITE, $modnamesused);
 
-echo '<div style="background-color:#fff; padding:10px;">
-<p dir="ltr" id="docs-internal-guid-a30cab70-7fff-457e-a6cc-ccb3672f559b"><br></p>
-<p dir="ltr">Bienvenido a la Plataforma Educativa que el Partido Revolucionario Institucional (PRI), con el apoyo del Centro de Investigación y Docencia Económicas, A.C. (CIDE), pone a tu disposición para que te capacites en temas de relevancia política nacional.</p>
-<p dir="ltr">La Plataforma cuenta con dos cursos:&nbsp;</p>
-<p dir="ltr">El primero, denominado “Una oposición responsable después de las elecciones del 2018”, en donde podrás consultar las catorce presentaciones del Ciclo de Seminarios que se impartieron a la militancia del PRI.</p>
-<p dir="ltr">El segundo, que se llama “Los militantes del PRI y la nueva concepción de participación ciudadana”, donde podrás consultar:</p>
-<ul>
-    <li dir="ltr">
-        <p dir="ltr" role="presentation">El Libro Digital “Ensayos sobre desarrollo institucional y régimen político en México: Noventa años del Partido Revolucionario Institucional”, que contiene quince ensayos de diferentes autores sobre la relevancia del PRI en la historia política,
-            económica y social de México; y</p>
-    </li>
-    <li dir="ltr">
-        <p dir="ltr" role="presentation">Doce videos de la serie “Conceptos Fundamentales sobre la Gobernanza Democrática”, impartidos por personal académico del CIDE, para ser vistos en el orden en que se presentan.</p>
-    </li>
-</ul>
-<p dir="ltr">No olvides consultar todos los materiales, para que al finalizar los cursos, cuentes con un panorama integral que pongas en práctica en el debate político cotidiano, y desarrolles una participación política activa.</p><br>
-<p dir="ltr"><b>Los militantes del PRI y la nueva concepción de participación ciudadana:</b></p>
-<p dir="ltr">Este contenido corresponde al Libro Digital “Ensayos sobre desarrollo institucional y régimen político en México: Noventa años del Partido Revolucionario Institucional” y a los videos de la serie “Conceptos Fundamentales sobre la Gobernanza Democrática”.</p><br>
-<p dir="ltr"><b>Ciclo de Seminarios:</b>
-    <br><br>Este contenido corresponde a las presentaciones del Ciclo de Seminarios “Una oposición responsable después de las elecciones del 2018”.</p>
-</div>
-<div class="text-center">
-<a class="btn btn-primary" href="http://ciudadanospri-cide.com/moodle/allcourse.php">Ver cursos</a>
-</div>';
+echo $courserenderer->frontpage();
 
-//echo $courserenderer->frontpage();
-
-if ($editing && has_capability('moodle/course:create', context_system::instance())) {
+/*if ($editing && has_capability('moodle/course:create', context_system::instance())) {
     echo $courserenderer->add_new_course_button();
-}
+}*/
 echo $OUTPUT->footer();
