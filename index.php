@@ -147,10 +147,6 @@ echo '<div style="background-color:#fff; padding:10px;">
     </li>
 </ul>
 <p dir="ltr">No olvides consultar todos los materiales, para que al finalizar los cursos, cuentes con un panorama integral que pongas en práctica en el debate político cotidiano, y desarrolles una participación política activa.</p><br>
-<p dir="ltr"><b>Los militantes del PRI y la nueva concepción de participación ciudadana:</b></p>
-<p dir="ltr">Este contenido corresponde al Libro Digital “Ensayos sobre desarrollo institucional y régimen político en México: Noventa años del Partido Revolucionario Institucional” y a los videos de la serie “Conceptos Fundamentales sobre la Gobernanza Democrática”.</p><br>
-<p dir="ltr"><b>Ciclo de Seminarios:</b>
-    <br><br>Este contenido corresponde a las presentaciones del Ciclo de Seminarios “Una oposición responsable después de las elecciones del 2018”.</p>
 </div>
 <div class="text-center">
 <a class="btn btn-primary" href="http://ciudadanospri-cide.com/moodle/allcourse.php">Ver cursos</a>
